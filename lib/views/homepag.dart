@@ -45,14 +45,27 @@ class _HomePageState extends State<HomePage> {
           itemCount: posts?.length,
           itemBuilder: (context, index) {
             return Container(
-              decoration: BoxDecoration(
-                  color: Colors.black, borderRadius: BorderRadius.circular(10)),
+              margin: const EdgeInsets.all(10),
+              decoration: BoxDecoration(boxShadow: const [
+                BoxShadow(
+                  color: Color(0xFFe8e8e8),
+                  offset: Offset(0, 5),
+                ),
+                BoxShadow(
+                  color: Colors.white,
+                  offset: Offset(-5, 0),
+                ),
+                BoxShadow(
+                  color: Colors.white,
+                  offset: Offset(5, 0),
+                ),
+              ], borderRadius: BorderRadius.circular(10)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     posts![index].title,
-                    maxLines: 2,
+                    maxLines: 1,
                     style: const TextStyle(
                         fontWeight: FontWeight.bold, fontSize: 25),
                     overflow: TextOverflow.ellipsis,
@@ -61,9 +74,12 @@ class _HomePageState extends State<HomePage> {
                     posts![index].body,
                     maxLines: 2,
                     style: const TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 10),
+                        fontWeight: FontWeight.bold, fontSize: 18),
                     overflow: TextOverflow.ellipsis,
                   ),
+                  const SizedBox(
+                    height: 10,
+                  )
                 ],
               ),
             );
